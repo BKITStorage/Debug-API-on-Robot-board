@@ -45,8 +45,6 @@ SPI_HandleTypeDef hspi1;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-enum Map_Seven_Segment {ZERO = 0x03, ONE=0x9F, TWO=0x25, THREE=0x0D, FOUR=0x99, FIVE=0x49, SIX=0x41, SEVEN=0x1F, EIGHT=0x01, NINE=0x09, A=0xC5, B=0xC1, C=0xE5, D=0x85, E=0x61, F=0x71};
-enum Map_Seven_Segment val[] = {ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, A, B, C, D, E, F};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,9 +58,6 @@ static void MX_TIM2_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void LED_Mode (uint8_t LED, uint8_t Mode);
-void writeSevenSegmentsLED (uint8_t val);
-void Test_Buzzer();
 /* USER CODE END 0 */
 
 /**
@@ -97,23 +92,13 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  Test_Buzzer();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  for (int i = 0; i < 16; i++) {
-		  LED_Mode(0, 1);
-		  writeSevenSegmentsLED(val[i]);
-		  LED_Mode(1, 1);
-		  writeSevenSegmentsLED(val[i]);
-		  HAL_GPIO_TogglePin(LED_debug_GPIO_Port, LED_debug_Pin);
-		  HAL_Delay(1000);
-//		  LED_Mode(1, 0);
-	  }
+  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -288,31 +273,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void Test_Buzzer(){
-	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-}
-void LED_Mode (uint8_t LED, uint8_t Mode) {
-	GPIO_TypeDef * Port;
-	uint16_t Pin;
-	if (LED == 0) {
-		Port = LED_EN1_GPIO_Port;
-		Pin = LED_EN1_Pin;
-	} else if (LED == 1) {
-		Port = LED_EN2_GPIO_Port;
-		Pin = LED_EN2_Pin;
-	}
-	HAL_GPIO_WritePin(LED_EN_GPIO_Port, LED_EN_Pin, 0);
-	HAL_GPIO_WritePin(Port, Pin, !Mode);
-}
-
-void writeSevenSegmentsLED (uint8_t val) {
-//	for (int i = 8; i > -1; i--) {
-		HAL_SPI_Transmit(&hspi1, (&val), 1, 50);
-		HAL_GPIO_WritePin(LED_LATCH_GPIO_Port, LED_LATCH_Pin, 1);
-		HAL_Delay(10);
-		HAL_GPIO_WritePin(LED_LATCH_GPIO_Port, LED_LATCH_Pin, 0);
-//	}
-}
 /* USER CODE END 4 */
 
 /**

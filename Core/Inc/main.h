@@ -67,6 +67,8 @@ void Error_Handler(void);
 #define LED_EN2_GPIO_Port GPIOA
 #define LED_EN1_Pin GPIO_PIN_12
 #define LED_EN1_GPIO_Port GPIOA
+#define INPUT_LOAD_Pin GPIO_PIN_15
+#define INPUT_LOAD_GPIO_Port GPIOA
 #define LED_LATCH_Pin GPIO_PIN_12
 #define LED_LATCH_GPIO_Port GPIOC
 
