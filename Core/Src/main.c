@@ -17,11 +17,13 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <buzzer.h>
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <buzzer.h>
+#include <LED_debug.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -100,6 +102,7 @@ int main(void)
   while (1)
   {
 	  test_buzzer();
+	  test_LED_debug();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
