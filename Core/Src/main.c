@@ -22,8 +22,13 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+<<<<<<< HEAD
 #include <buzzer.h>
 #include <LED_debug.h>
+=======
+#include "Seven_Segments.h"
+#include "8_LED_Arrays.h"
+>>>>>>> 72b4f1b (Lib updated)
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,11 +103,19 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+<<<<<<< HEAD
 
   while (1)
   {
 	  test_buzzer();
 	  test_LED_debug();
+=======
+//  seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
+  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
+  while (1)
+  {
+	  test_8_led_arrays ();
+>>>>>>> 72b4f1b (Lib updated)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

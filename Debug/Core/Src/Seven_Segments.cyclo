@@ -1,0 +1,4 @@
+../Core/Src/Seven_Segments.c:27:6:seven_segments_led_init	1
+../Core/Src/Seven_Segments.c:48:6:seven_segments_led_mode	3
+../Core/Src/Seven_Segments.c:66:6:write_seven_segments_led	1
+../Core/Src/Seven_Segments.c:73:6:test_seven_segments_led_debug	2
