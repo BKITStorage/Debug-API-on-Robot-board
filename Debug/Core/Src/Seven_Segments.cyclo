@@ -1,4 +1,6 @@
-../Core/Src/Seven_Segments.c:27:6:seven_segments_led_init	1
-../Core/Src/Seven_Segments.c:48:6:seven_segments_led_mode	3
-../Core/Src/Seven_Segments.c:66:6:write_seven_segments_led	1
-../Core/Src/Seven_Segments.c:73:6:test_seven_segments_led_debug	2
+../Core/Src/Seven_Segments.c:30:6:seven_segments_led_init	1
+../Core/Src/Seven_Segments.c:51:6:seven_segments_led_mode	3
+../Core/Src/Seven_Segments.c:69:6:write_seven_segments_led	1
+../Core/Src/Seven_Segments.c:76:6:display_num	3
+../Core/Src/Seven_Segments.c:88:6:test_seven_segments_led_debug	2
+../Core/Src/Seven_Segments.c:95:6:HAL_TIM_PeriodElapsedCallback	2

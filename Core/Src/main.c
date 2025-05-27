@@ -103,12 +103,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
-  seven_segments_led_mode(0,1);
-  seven_segments_led_mode(1,0);
+//  seven_segments_led_mode(0,1);
+//  seven_segments_led_mode(1,0);
+  HAL_TIM_Base_Start_IT(&htim2);
 //  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
+  uint8_t i = 0;
   while (1)
   {
-	  test_seven_segments_led_debug ();
+	  display_num(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -134,7 +136,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -145,11 +147,11 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
   {
     Error_Handler();
   }
@@ -214,7 +216,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 7999;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 99;
+  htim2.Init.Period = 1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)

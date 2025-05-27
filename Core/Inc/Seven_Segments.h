@@ -47,5 +47,5 @@ void seven_segments_led_mode (uint8_t LED, uint8_t Mode);
 void write_seven_segments_led (uint8_t val);
 
 void test_seven_segments_led_debug ();
-
+void display_num (uint8_t value) ;
 #endif /* INC_SEVEN_SEGMENTS_H_ */
