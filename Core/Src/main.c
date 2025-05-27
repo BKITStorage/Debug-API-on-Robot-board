@@ -102,13 +102,15 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
-  seven_segments_led_mode(0,1);
-  seven_segments_led_mode(1,0);
-//  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
+//  seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
+//  seven_segments_led_mode(0,1);
+//  seven_segments_led_mode(1,0);
+  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
+//  led_mode(1);
   while (1)
   {
-	  test_seven_segments_led_debug ();
+	  test_8_led_arrays();
+//	  test_seven_segments_led_debug ();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

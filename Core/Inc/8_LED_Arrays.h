@@ -36,6 +36,13 @@ void led_mode (uint8_t Mode);
  * */
 void write_8_led_arrays (uint8_t val);
 
+/**
+ * @brief: Dao nguoc bit
+ * @params: b: gia tri truyen vao de dao nguoc bit
+ * @retval: b: gia tri sau khi dao nguoc bit
+ */
+uint8_t reverse_bits(uint8_t b);
+
 void test_8_led_arrays ();
 
 #endif /* INC_8_LED_ARRAYS_H_ */
