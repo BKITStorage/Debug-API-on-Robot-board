@@ -60,8 +60,8 @@ all: main-build
 main-build: Test_MachRobot.elf secondary-outputs
 
 # Tool invocations
-Test_MachRobot.elf Test_MachRobot.map: $(OBJS) $(USER_OBJS) D:\STM\Test_MachRobot\STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Test_MachRobot.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\STM\Test_MachRobot\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test_MachRobot.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Test_MachRobot.elf Test_MachRobot.map: $(OBJS) $(USER_OBJS) D:\BKIT\BKIT_Internship\Debug-API-on-Robot-board\STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Test_MachRobot.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\BKIT\BKIT_Internship\Debug-API-on-Robot-board\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test_MachRobot.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

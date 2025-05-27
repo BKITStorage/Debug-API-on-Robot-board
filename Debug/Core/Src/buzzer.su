@@ -1,0 +1,6 @@
+../Core/Src/buzzer.c:10:6:buzzer_on	8	static
+../Core/Src/buzzer.c:13:6:buzzer_off	8	static
+../Core/Src/buzzer.c:16:6:test_buzzer	8	static
+../Core/Src/buzzer.c:25:6:buzzer_init	16	static
+../Core/Src/buzzer.c:32:6:buzzer_play_note	32	static
+../Core/Src/buzzer.c:54:6:buzzer_play_song	24	static

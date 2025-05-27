@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "buzzer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -92,12 +92,23 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  buzzer_init(&htim2, TIM_CHANNEL_1);
+  Note song[] = {
+		  {330, 250}, {330, 250}, {330, 500},
+		      {330, 250}, {330, 250}, {330, 500},
+		      {330, 250}, {392, 250}, {262, 250}, {294, 250}, {330, 1000}
+  };
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   while (1)
   {
+	  buzzer_play_song(song, sizeof(song)/sizeof(Note));
+	  HAL_Delay(1000);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
