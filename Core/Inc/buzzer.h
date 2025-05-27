@@ -5,8 +5,8 @@
  *      Author: truon
  */
 
-#ifndef SRC_BUZZER_H_
-#define SRC_BUZZER_H_
+#ifndef INC_BUZZER_H_
+#define INC_BUZZER_H_
 
 #include "main.h"
 
@@ -28,4 +28,4 @@ void buzzer_init(TIM_HandleTypeDef *htim, uint32_t channel);
 void buzzer_play_note(uint16_t freq, uint16_t duration_ms);
 void buzzer_play_song(const Note* song, uint16_t length);
 
-#endif /* SRC_BUZZER_H_ */
+#endif /* INC_BUZZER_H_ */

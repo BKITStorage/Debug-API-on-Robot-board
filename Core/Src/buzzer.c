@@ -5,7 +5,7 @@
  *      Author: truon
  */
 
-#include "buzzer.h"
+#include <buzzer.h>
 
 void buzzer_on(){
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
