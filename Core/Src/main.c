@@ -110,7 +110,7 @@ int main(void)
   uint8_t i = 0;
   while (1)
   {
-	  display_num(1);
+	  display_num(23);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

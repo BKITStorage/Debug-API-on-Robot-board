@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000014ca  00000000  00000000  00011452  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0000c1f9  00000000  00000000  0001291c  2**0
+ 17 .debug_line   0000c1f5  00000000  00000000  0001291c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00094353  00000000  00000000  0001eb15  2**0
+ 18 .debug_str    00094353  00000000  00000000  0001eb11  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  000b2e68  2**0
+ 19 .comment      00000043  00000000  00000000  000b2e64  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002f44  00000000  00000000  000b2eac  2**2
+ 20 .debug_frame  00002f44  00000000  00000000  000b2ea8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000068  00000000  00000000  000b5df0  2**0
+ 21 .debug_line_str 00000068  00000000  00000000  000b5dec  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -340,7 +340,7 @@ void display_num (uint8_t value) {
 
 080003e8 <HAL_TIM_PeriodElapsedCallback>:
 	  write_seven_segments_led (val[i]);
-	  HAL_Delay(4000);
+	  HAL_Delay(500);
 	}
 }
 
@@ -452,8 +452,8 @@ int main(void)
  800047a:	71fb      	strb	r3, [r7, #7]
   while (1)
   {
-	  display_num(1);
- 800047c:	2001      	movs	r0, #1
+	  display_num(23);
+ 800047c:	2017      	movs	r0, #23
  800047e:	f7ff ff6d 	bl	800035c <display_num>
  8000482:	e7fb      	b.n	800047c <main+0x4c>
  8000484:	40010800 	.word	0x40010800
@@ -1384,20 +1384,8 @@ void TIM2_IRQHandler(void)
  8000910:	200000b4 	.word	0x200000b4
 
 08000914 <SystemInit>:
-  * @note   This function should be used only after reset.
-  * @param  None
-  * @retval None
-  */
-void SystemInit (void)
-{
  8000914:	b480      	push	{r7}
  8000916:	af00      	add	r7, sp, #0
-
-  /* Configure the Vector Table location -------------------------------------*/
-#if defined(USER_VECT_TAB_ADDRESS)
-  SCB->VTOR = VECT_TAB_BASE_ADDRESS | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM. */
-#endif /* USER_VECT_TAB_ADDRESS */
-}
  8000918:	bf00      	nop
  800091a:	46bd      	mov	sp, r7
  800091c:	bc80      	pop	{r7}

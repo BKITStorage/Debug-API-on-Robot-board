@@ -35,15 +35,30 @@ void led_mode (uint8_t Mode) {
 }
 
 /**
+ * @brief: Dao nguoc bit
+ * @params: b: gia tri truyen vao de dao nguoc bit
+ * @retval: b: gia tri sau khi dao nguoc bit
+ */
+uint8_t reverse_bits(uint8_t b) {
+    b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
+    b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
+    b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
+    return b;
+}
+
+
+/**
  * @brief: Hien thi so ra man hinh tuong ung
  * @params: val: Truyen vao so tuong ung: ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, A, B, C, D, E, F de hien thi ky tu tuong ung
  * */
 void write_8_led_arrays (uint8_t val) {
-	HAL_SPI_Transmit(ledsArraySPI, (uint8_t)(~val & 0xFF), 1, 50);
+	uint8_t data = ~reverse_bits(val);
+	HAL_SPI_Transmit(ledsArraySPI, &data, 1, 50);
 	HAL_GPIO_WritePin(Array_LED_LATCH_GPIO_Port, Array_LED_LATCH_Pin, 1);
 	HAL_Delay(10);
 	HAL_GPIO_WritePin(Array_LED_LATCH_GPIO_Port, Array_LED_LATCH_Pin, 0);
 }
+
 
 void test_8_led_arrays () {
 	led_mode (1);

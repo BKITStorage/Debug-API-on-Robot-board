@@ -88,7 +88,7 @@ void display_num (uint8_t value) {
 void test_seven_segments_led_debug () {
 	for (int i = 0; i < 16; i++) {
 	  write_seven_segments_led (val[i]);
-	  HAL_Delay(4000);
+	  HAL_Delay(500);
 	}
 }
 
