@@ -36,8 +36,8 @@ void seven_segments_led_init (SPI_HandleTypeDef * spi,
 	LED_EN_P = EN_Pin;
 	LED_EN1_GPIO_Po = EN1_GPIO_Port;
 	LED_EN1_P = EN1_Pin;
-	LED_EN2_GPIO_Po = EN1_GPIO_Port;
-	LED_EN2_P = EN1_Pin;
+	LED_EN2_GPIO_Po = EN2_GPIO_Port;
+	LED_EN2_P = EN2_Pin;
 }
 
 /**
@@ -73,6 +73,6 @@ void write_seven_segments_led (uint8_t val) {
 void test_seven_segments_led_debug () {
 	for (int i = 0; i < 16; i++) {
 	  write_seven_segments_led (val[i]);
-	  HAL_Delay(500);
+	  HAL_Delay(4000);
 	}
 }

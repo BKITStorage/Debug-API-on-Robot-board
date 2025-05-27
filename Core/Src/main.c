@@ -17,18 +17,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-<<<<<<< HEAD
 #include <buzzer.h>
 #include <LED_debug.h>
-=======
+
 #include "Seven_Segments.h"
 #include "8_LED_Arrays.h"
->>>>>>> 72b4f1b (Lib updated)
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,19 +101,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-<<<<<<< HEAD
 
+  seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
+  seven_segments_led_mode(0,1);
+  seven_segments_led_mode(1,0);
+//  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
   while (1)
   {
-	  test_buzzer();
-	  test_LED_debug();
-=======
-//  seven_segments_led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin, LED_EN1_GPIO_Port, LED_EN1_Pin, LED_EN2_GPIO_Port, LED_EN2_Pin);
-  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
-  while (1)
-  {
-	  test_8_led_arrays ();
->>>>>>> 72b4f1b (Lib updated)
+	  test_seven_segments_led_debug ();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -269,7 +262,7 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOC, LED_debug_Pin|LED_LATCH_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, LED_EN_Pin|LED_EN2_Pin|LED_EN1_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, LED_EN_Pin|LED_EN2_Pin|LED_EN1_Pin|INPUT_LOAD_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_debug_Pin LED_LATCH_Pin */
   GPIO_InitStruct.Pin = LED_debug_Pin|LED_LATCH_Pin;
@@ -278,8 +271,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_EN_Pin LED_EN2_Pin LED_EN1_Pin */
-  GPIO_InitStruct.Pin = LED_EN_Pin|LED_EN2_Pin|LED_EN1_Pin;
+  /*Configure GPIO pins : LED_EN_Pin LED_EN2_Pin LED_EN1_Pin INPUT_LOAD_Pin */
+  GPIO_InitStruct.Pin = LED_EN_Pin|LED_EN2_Pin|LED_EN1_Pin|INPUT_LOAD_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

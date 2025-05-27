@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := Debug-API-on-Robot-board
+BUILD_ARTIFACT_NAME := Test_MachRobot
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Debug-API-on-Robot-board.elf \
+Test_MachRobot.elf \
 
 MAP_FILES += \
-Debug-API-on-Robot-board.map \
+Test_MachRobot.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-Debug-API-on-Robot-board.list \
+Test_MachRobot.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: Debug-API-on-Robot-board.elf secondary-outputs
+main-build: Test_MachRobot.elf secondary-outputs
 
 # Tool invocations
-Debug-API-on-Robot-board.elf Debug-API-on-Robot-board.map: $(OBJS) $(USER_OBJS) D:\STM32CubeIDE_1.17.0\Workspace\Debug-API-on-Robot-board\STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Debug-API-on-Robot-board.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\STM32CubeIDE_1.17.0\Workspace\Debug-API-on-Robot-board\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Debug-API-on-Robot-board.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Test_MachRobot.elf Test_MachRobot.map: $(OBJS) $(USER_OBJS) D:\STM\Test_MachRobot\STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Test_MachRobot.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"D:\STM\Test_MachRobot\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Test_MachRobot.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-Debug-API-on-Robot-board.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Debug-API-on-Robot-board.list"
+Test_MachRobot.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "Test_MachRobot.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) Debug-API-on-Robot-board.elf Debug-API-on-Robot-board.list Debug-API-on-Robot-board.map default.size.stdout
+	-$(RM) Test_MachRobot.elf Test_MachRobot.list Test_MachRobot.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
