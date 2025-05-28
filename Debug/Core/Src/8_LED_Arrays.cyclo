@@ -1,0 +1,5 @@
+../Core/Src/8_LED_Arrays.c:20:6:led_init	1
+../Core/Src/8_LED_Arrays.c:33:6:led_mode	1
+../Core/Src/8_LED_Arrays.c:42:9:reverse_bits	1
+../Core/Src/8_LED_Arrays.c:54:6:write_8_led_arrays	1
+../Core/Src/8_LED_Arrays.c:63:6:test_8_led_arrays	1

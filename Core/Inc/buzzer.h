@@ -12,6 +12,9 @@
 
 extern TIM_HandleTypeDef htim2;
 
+
+
+
 void buzzer_on();
 void buzzer_off();
 void test_buzzer();

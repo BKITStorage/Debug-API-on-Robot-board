@@ -2,5 +2,5 @@
 ../Core/Src/stm32f1xx_hal_msp.c:92:6:HAL_SPI_MspInit	40	static
 ../Core/Src/stm32f1xx_hal_msp.c:133:6:HAL_SPI_MspDeInit	16	static
 ../Core/Src/stm32f1xx_hal_msp.c:163:6:HAL_TIM_PWM_MspInit	24	static
-../Core/Src/stm32f1xx_hal_msp.c:180:6:HAL_TIM_MspPostInit	40	static
-../Core/Src/stm32f1xx_hal_msp.c:210:6:HAL_TIM_PWM_MspDeInit	16	static
+../Core/Src/stm32f1xx_hal_msp.c:183:6:HAL_TIM_MspPostInit	40	static
+../Core/Src/stm32f1xx_hal_msp.c:213:6:HAL_TIM_PWM_MspDeInit	16	static
