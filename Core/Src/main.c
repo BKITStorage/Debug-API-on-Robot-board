@@ -26,7 +26,7 @@
 
 #include "Seven_Segments.h"
 #include "8_LED_Arrays.h"
-
+#include "button.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,6 +97,7 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  button *btn =create_button();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,11 +108,15 @@ int main(void)
 //  seven_segments_led_mode(1,0);
   HAL_TIM_Base_Start_IT(&htim2);
 //  led_init(&hspi1, LED_LATCH_GPIO_Port, LED_LATCH_Pin, LED_EN_GPIO_Port, LED_EN_Pin);
-  uint8_t i = 0;
+
   while (1)
   {
 	  uint8_t data = ~read_74HC165_spi();
-	  display_num(data);
+	  fillButtonCache(data, btn);
+	  uint8_t data_out= getButtonValue(btn);
+
+
+	  display_num(data_out);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
